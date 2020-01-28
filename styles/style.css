@@ -1,0 +1,122 @@
+/*css variables*/
+:root {
+    --body_gradient_left:#060033;
+    --body_gradient_right: black;
+    --form_bg: black;
+    --input_bg: #E5E5E5;
+    --input_hover:#eaeaea;
+    --submit_bg: #5E9908;
+    --submit_hover: #013136;
+    --icon_color:#6b6b6b;
+}
+/*override browser default*/
+*{
+    padding: 0;
+    margin: 0;
+    /*The box-sizing property allows us to include
+     the padding and border in an element's total
+      width and height. If you set box-sizing:
+       border-box; on an element padding and
+        border are included in the width and 
+        height: Both divs are the same size now*/
+    box-sizing: border-box;
+}
+body{
+    /* make the body full height*/
+    /*100% of the viewport height*/
+    height: 100vh;
+    /* set our custom font */
+    /*second font in case if fisrt font failed*/
+    font-family:'Roboto',
+    sans-serif;
+    /* create a linear gradient*/
+    background-image: linear-gradient(to right, var(--body_gradient_left), var(--body_gradient_right));
+    display:flex;
+
+}
+
+#form_wrapper {
+    width: 500px;
+    height: 100%;
+    /* this will center it*/
+    margin:auto;
+    background-color: var(--form_bg);
+    border-radius: 0;
+    /*  grid container*/
+    display: grid;
+    /*one column*/
+    grid-template-columns: 1fr;
+    padding-top: 17%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
+.input_container{
+background-color: var(--input_bg);
+    /* vertically align icon and text inside the div*/
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: 1%;
+}
+.input_container:hover
+{
+    background-color: var(--input_hover);
+
+}
+.input_container,button{
+    height: 60px;
+    /* make the borders more round */
+    border-radius: 1px;
+    width: 100%;
+}
+input{
+    /* customize the input tag with lighter font and some padding*/
+    color: var(--icon_color);
+    background-color: inherit;
+    width: 90%;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-left: 30px;
+}
+
+input:hover,input:focus{
+    /*remove the outline*/
+    outline: none;
+}
+/*input:invalid:required {
+    background-color: rgb(250, 20, 20);  }*/
+button{
+    /* submit button has a different color and different padding */
+    background-color: var(--submit_bg);
+    padding-left: 0;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    border: 0;
+    margin-top: 10%;
+}
+button:hover{
+    background-color: var(--submit_hover);
+    /* simple color transition on hover */
+    transition:background-color,1s;
+    cursor: pointer;
+}
+h1{
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    display: none;
+}
+    /* make it responsive */
+    @media screen and (max-width:768px) {
+
+        /* make the layout  a single column and add some margin to the wrapper */
+        #form_wrapper {
+            grid-template-columns: 1fr;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+ 
+    }
